@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import Loading from './components/Loading';
 import Footer from './components/Footer';
-import Card from './components/Card';
-import LeftArrow from './components/LeftArrow';
-import RightArrow from './components/RightArrow';
+import Home from './components/Home';
 import './App.css'
 import axios from "axios"
+import {Route, Routes} from "react-router-dom"
+import CardDetail from './components/CardDetail';
 
 function App() {
   
@@ -16,27 +16,16 @@ function App() {
     axios.get(`https://dummyjson.com/products?limit=${9}&skip=${9 * (pageNumber - 1)}`)
       .then((response) => {
         setData(response.data.products);
-        console.log(response.data.products);
       })
   }, [pageNumber]);
 
   return data.length === 0 ? <Loading/> : (
     <>
-      <div className='app'>
-        <div className='card-container'>
-          {data.map((item, index) => {
-            return <Card key = {index} item = {item} />
-          })}
-        </div>
-
-          <div className='next'>
-            <LeftArrow pageNumber = {pageNumber} setPageNumber = {setPageNumber} />
-            <div className='page-number'>{pageNumber}</div>
-            <RightArrow pageNumber = {pageNumber} setPageNumber = {setPageNumber} length = {data.length} />
-          </div>
-
-      </div>
-
+      <Routes>
+        <Route path= "/" element={<Home data={data} pageNumber={pageNumber} setPageNumber={setPageNumber} />}/>
+        <Route path= "/detail/:id" element={<CardDetail/>}/>
+      </Routes>
+    
       <Footer />
     </>
   )

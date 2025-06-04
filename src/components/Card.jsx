@@ -1,11 +1,15 @@
-
+import { useNavigate } from "react-router-dom"
 
 function Card ({item})
 {
+    const navigate = useNavigate();
+
     return (
-        <div className="card">
+        <div className="card" onClick={() => {
+            navigate(`/detail/${item.id}`);
+        }}>
             <div>
-               <img src={`${item.images[0]}`} alt="" className="card-image"/>
+               <img src={`${item.thumbnail}`} alt="thumbnail" className="card-image"/>
             </div>
 
             <div className = "card-text">
