@@ -1,26 +1,43 @@
 import { useEffect, useState } from 'react'
 import Loading from './components/Loading';
 import Footer from './components/Footer';
+import Card from './components/Card';
+import LeftArrow from './components/LeftArrow';
+import RightArrow from './components/RightArrow';
 import './App.css'
 import axios from "axios"
-import {BrowserRouter, Route} from "react-router-dom"
 
 function App() {
   
   const [data, setData] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
-    axios.get(`https://dummyjson.com/products?limit=${10}&skip=0`)
+    axios.get(`https://dummyjson.com/products?limit=${10}&skip=${10 * (pageNumber - 1)}`)
       .then((response) => {
         setData(response.data.products);
+        console.log(response.data.products);
       })
-  }, []);
+  }, [pageNumber]);
 
   return data.length === 0 ? <Loading/> : (
     <>
-      <BrowserRouter>
-        hi
-      </BrowserRouter>
+      <div className='app'>
+        <div className='card-container'>
+          {data.map((item, index) => {
+            return <Card key = {index} item = {item} />
+          })}
+        </div>
+
+          <div className='next'>
+            <LeftArrow/>
+            {pageNumber > 1 ? <LeftArrow pageNumber = {pageNumber} setPageNumber = {setPageNumber} /> : <div></div>}
+            <div className='page-number'>{pageNumber}</div>
+            <RightArrow/>
+            {data.length === 10 ? <RightArrow pageNumber = {pageNumber} setPageNumber = {setPageNumber} length = {data.length} /> : <div></div>}
+          </div>
+
+      </div>
 
       <Footer />
     </>

@@ -1,15 +1,94 @@
+
 .loading
 {
+  background-color: black;
   color: white;
   font-size: xx-large;
+  font-weight: bolder;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 700px;
+  height: 100vh;
+}
+
+.app
+{
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .footer
 {
+  background-color: green;
+  height: 10  0px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img-container
+{
+  display: flex;
+  width: 700px;
+  justify-content: space-evenly;
+}
+
+img
+{
+  margin: 10px;
+  height: 35px;
+  width: 35px;
+  border: 1px solid black;
+  border-radius: 20px;
   background-color: white;
-  height: 300px;
+}
+
+img:hover
+{
+  transform: scale(1.2);
+  transition-duration: 130ms;
+}
+
+.footer-text
+{
+  font-weight: lighter;
+}
+
+.next
+{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-number
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(34, 34, 34);
+  border: 2px solid rgb(34, 34, 34);
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+.card-container
+{
+  display: grid;
+}
+
+.card
+{
+  color: white;
 }
