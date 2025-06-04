@@ -5,7 +5,7 @@ function Card ({item})
     return (
         <div className="card">
             <div>
-               <img src={`${item.images}`} alt="" className="card-image"/>
+               <img src={`${item.images[0]}`} alt="" className="card-image"/>
             </div>
 
             <div className = "card-text">
