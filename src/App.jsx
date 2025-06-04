@@ -13,7 +13,7 @@ function App() {
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
-    axios.get(`https://dummyjson.com/products?limit=${10}&skip=${10 * (pageNumber - 1)}`)
+    axios.get(`https://dummyjson.com/products?limit=${9}&skip=${9 * (pageNumber - 1)}`)
       .then((response) => {
         setData(response.data.products);
         console.log(response.data.products);
@@ -30,11 +30,9 @@ function App() {
         </div>
 
           <div className='next'>
-            <LeftArrow/>
-            {pageNumber > 1 ? <LeftArrow pageNumber = {pageNumber} setPageNumber = {setPageNumber} /> : <div></div>}
+            <LeftArrow pageNumber = {pageNumber} setPageNumber = {setPageNumber} />
             <div className='page-number'>{pageNumber}</div>
-            <RightArrow/>
-            {data.length === 10 ? <RightArrow pageNumber = {pageNumber} setPageNumber = {setPageNumber} length = {data.length} /> : <div></div>}
+            <RightArrow pageNumber = {pageNumber} setPageNumber = {setPageNumber} length = {data.length} />
           </div>
 
       </div>

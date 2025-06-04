@@ -5,15 +5,15 @@ function Footer ()
         <div className="footer">
             <div className="image-container">
                 <a href="https://www.x.com">
-                    <img src="/x.jpg" alt="X" />
+                    <img src="/x.jpg" alt="X" className="img"/>
                 </a>
 
                 <a href="https://www.instagram.com">
-                    <img src="/instagram.jpg" alt="instagram" />
+                    <img src="/instagram.jpg" alt="instagram" className="img"/>
                 </a>
 
                 <a href="https://www.whatsapp.com">
-                    <img src="/whatsapp.png" alt="whatsapp" />
+                    <img src="/whatsapp.png" alt="whatsapp" className="img"/>
                 </a>
             </div>
 

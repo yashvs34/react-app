@@ -3,7 +3,7 @@ function RightArrow ({pageNumber, setPageNumber, length})
 {
     return (
         <div>
-            {length === 10 ? <img src="/right-arrow.png" alt="right-arrow" onClick={() => {
+            {length === 9 ? <img src="/right-arrow.svg" alt="right-arrow" className="img" onClick={() => {
                 setPageNumber(pageNumber+1);
             }}/> : <div></div>}            
         </div>
