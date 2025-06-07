@@ -1,7 +1,7 @@
 
 .loading
 {
-  background-color: black;
+  background-color: rgb(35, 35, 35);
   color: white;
   font-size: xx-large;
   font-weight: bolder;
@@ -65,7 +65,8 @@
 .next
 {
   color: white;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
   margin: 20px;
@@ -182,4 +183,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.detail-card
+{
+  background-color: rgb(35, 35, 35);
+  color: white;
+}
+
+.detail-images
+{
+  display: flex;
+}
+
+.detail-individual-image
+{
+  height: 300px;
+  width: 300px;
 }
